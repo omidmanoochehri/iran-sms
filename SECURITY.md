@@ -4,7 +4,7 @@
 
 Please report security issues **privately**, not as a public GitHub issue.
 
-- Open a [GitHub security advisory](https://github.com/cactus-software-group/iran-sms/security/advisories/new), or
+- Open a [GitHub security advisory](https://github.com/omidmanoochehri/iran-sms/security/advisories/new), or
 - email **security@cactus.software** with `[iran-sms]` in the subject.
 
 Include the affected version, what an attacker can do, and a reproduction if you have one.

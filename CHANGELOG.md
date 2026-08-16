@@ -129,5 +129,5 @@ Stated here rather than left to be discovered:
 - **IPPanel's URL-send endpoint is deliberately unimplemented** — it accepts credentials as
   query parameters, which writes them into every intermediary's access log.
 
-[Unreleased]: https://github.com/cactus-software-group/iran-sms/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/cactus-software-group/iran-sms/releases/tag/v0.1.0
+[Unreleased]: https://github.com/omidmanoochehri/iran-sms/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/omidmanoochehri/iran-sms/releases/tag/v0.1.0

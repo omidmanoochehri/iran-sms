@@ -26,12 +26,12 @@
   "author": "Cactus Software Group",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cactus-software-group/iran-sms.git"
+    "url": "git+https://github.com/omidmanoochehri/iran-sms.git"
   },
   "bugs": {
-    "url": "https://github.com/cactus-software-group/iran-sms/issues"
+    "url": "https://github.com/omidmanoochehri/iran-sms/issues"
   },
-  "homepage": "https://github.com/cactus-software-group/iran-sms#readme",
+  "homepage": "https://github.com/omidmanoochehri/iran-sms#readme",
   "type": "module",
   "sideEffects": false,
   "engines": {
