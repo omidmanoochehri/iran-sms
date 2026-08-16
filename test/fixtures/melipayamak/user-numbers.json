@@ -1,0 +1,12 @@
+{
+  "MyBase": {
+    "Value": "Ok",
+    "RetStatus": 1,
+    "StrRetStatus": "Ok"
+  },
+  "Data": [
+    {
+      "Number": "5000..."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "return": {
+    "status": 200,
+    "message": "تایید شد"
+  },
+  "entries": [
+    {
+      "messageid": 8792343,
+      "message": "test",
+      "status": 5,
+      "statustext": "ارسال به مخابرات",
+      "sender": "10004346",
+      "receptor": "09*********",
+      "date": 1356619709,
+      "cost": 120
+    }
+  ]
+}

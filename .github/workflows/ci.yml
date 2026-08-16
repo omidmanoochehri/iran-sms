@@ -1,0 +1,157 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint, typecheck & build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Build
+        run: npm run build
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Capability matrix is up to date
+        run: |
+          npm run docs:matrix
+          # The matrix is generated from the catalog. If it differs, a capability changed
+          # without the docs being regenerated.
+          git diff --exit-code -- docs/provider-matrix.md \
+            || (echo "::error::docs/provider-matrix.md is stale — run 'npm run docs:matrix'" && exit 1)
+
+  test:
+    name: Test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - run: npm ci
+
+      # `pretest` builds first; the suite runs against dist/ so it exercises what ships.
+      - name: Test
+        run: npm test
+
+  install-check:
+    name: Installs cleanly in a fresh project
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Pack
+        run: echo "TARBALL=$(npm pack --silent)" >> "$GITHUB_ENV"
+
+      - name: Install the tarball into an empty project and import it both ways
+        run: |
+          mkdir -p /tmp/consumer && cd /tmp/consumer
+          npm init -y >/dev/null
+          npm install "$GITHUB_WORKSPACE/$TARBALL" --silent
+
+          cat > esm.mjs <<'EOF'
+          import { SMS, parsePhone } from 'iran-sms';
+          import { KavenegarProvider } from 'iran-sms/providers/kavenegar';
+          if (SMS.providers().length !== 20) throw new Error('expected 20 providers');
+          if (parsePhone('+989121234567').operator !== 'mci') throw new Error('phone parsing broken');
+          if (typeof KavenegarProvider !== 'function') throw new Error('subpath export broken');
+          console.log('ESM ok');
+          EOF
+
+          cat > cjs.cjs <<'EOF'
+          const { SMS } = require('iran-sms');
+          const { SMSError } = require('iran-sms/errors');
+          if (!SMS.hasProvider('kavenegar')) throw new Error('registry broken');
+          if (typeof SMSError !== 'function') throw new Error('errors subpath broken');
+          console.log('CJS ok');
+          EOF
+
+          node esm.mjs
+          node cjs.cjs
+
+  # Integration tests hit real provider APIs and cost real money, so they never run
+  # automatically. Trigger manually, with credentials in repository secrets.
+  integration:
+    name: Integration (manual, requires credentials)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    environment: integration
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      # A provider with no secret configured skips itself rather than failing, so this job is
+      # useful with a single set of credentials. Leaving SMS_INTEGRATION_RECIPIENT unset keeps
+      # the run read-only.
+      - name: Run integration tests
+        env:
+          SMS_INTEGRATION_TESTS: 'true'
+          SMS_INTEGRATION_RECIPIENT: ${{ secrets.SMS_INTEGRATION_RECIPIENT }}
+          SMS_SENDER: ${{ secrets.SMS_SENDER }}
+          IPPANEL_API_KEY: ${{ secrets.IPPANEL_API_KEY }}
+          KAVENEGAR_API_KEY: ${{ secrets.KAVENEGAR_API_KEY }}
+          SMSIR_API_KEY: ${{ secrets.SMSIR_API_KEY }}
+          FARAZSMS_API_KEY: ${{ secrets.FARAZSMS_API_KEY }}
+          MELIPAYAMAK_USERNAME: ${{ secrets.MELIPAYAMAK_USERNAME }}
+          MELIPAYAMAK_PASSWORD: ${{ secrets.MELIPAYAMAK_PASSWORD }}
+          FARAPAYAMAK_USERNAME: ${{ secrets.FARAPAYAMAK_USERNAME }}
+          FARAPAYAMAK_PASSWORD: ${{ secrets.FARAPAYAMAK_PASSWORD }}
+          SHAHVARPAYAM_USERNAME: ${{ secrets.SHAHVARPAYAM_USERNAME }}
+          SHAHVARPAYAM_PASSWORD: ${{ secrets.SHAHVARPAYAM_PASSWORD }}
+          AMOOT_TOKEN: ${{ secrets.AMOOT_TOKEN }}
+          MEDIANA_API_KEY: ${{ secrets.MEDIANA_API_KEY }}
+          MEDIANA_BASE_URL: ${{ secrets.MEDIANA_BASE_URL }}
+          MIZBANSMS_USERNAME: ${{ secrets.MIZBANSMS_USERNAME }}
+          MIZBANSMS_PASSWORD: ${{ secrets.MIZBANSMS_PASSWORD }}
+        run: node --test "test/integration/*.test.ts"

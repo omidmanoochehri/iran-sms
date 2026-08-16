@@ -1,0 +1,4 @@
+{
+  "Status": "ServerError",
+  "ErrorMessage": "The parameters dictionary contains a null entry for parameter 'PatternCodeID'…"
+}

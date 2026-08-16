@@ -1,0 +1,7 @@
+{
+  "status": "error",
+  "code": "10016",
+  "data": {
+    "error": "pattern is inactive"
+  }
+}

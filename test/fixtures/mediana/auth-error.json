@@ -1,0 +1,7 @@
+{
+  "status": "error",
+  "code": "1402",
+  "data": {
+    "error": "api key is not valid"
+  }
+}

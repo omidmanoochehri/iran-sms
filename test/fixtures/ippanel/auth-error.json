@@ -1,0 +1,10 @@
+{
+  "data": null,
+  "meta": {
+    "status": false,
+    "message": "اطلاعات وارد شده صحیح نمی باشد",
+    "message_parameters": [],
+    "message_code": "400-1",
+    "errors": {}
+  }
+}

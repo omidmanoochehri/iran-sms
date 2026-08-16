@@ -1,0 +1,18 @@
+{
+  "return": {
+    "status": 200,
+    "message": "تایید شد"
+  },
+  "entries": [
+    {
+      "linenumber": "123456",
+      "receptor": "0911222333",
+      "status": "Active"
+    },
+    {
+      "linenumber": "123456",
+      "receptor": "09224445555",
+      "status": "NotExists"
+    }
+  ]
+}

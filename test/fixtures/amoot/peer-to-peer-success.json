@@ -1,0 +1,22 @@
+{
+  "Data": {
+    "CampaignsCreated": 1,
+    "TotalCampaignNumbersCreated": 1,
+    "FailedCount": 0,
+    "Campaigns": [
+      {
+        "Numbers": [
+          {
+            "ID": 12345678,
+            "Number": "09120000000"
+          }
+        ],
+        "Status": "Success",
+        "MessageText": "پیام نمونه",
+        "ID": 12345678,
+        "SMSPagesCount": 1
+      }
+    ]
+  },
+  "Status": "Success"
+}

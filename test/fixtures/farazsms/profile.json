@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "message": {},
+  "data": {
+    "displayName": "فراز اس‌ام‌اس",
+    "mobile": "09XXXXXXXXX",
+    "verified": true,
+    "blocked": false,
+    "plan": {
+      "id": 1,
+      "title": "اسم پکیج",
+      "expiryDate": "2027-02-04T15:41:35.000000Z"
+    },
+    "permissions": "01ffffffffffffffffff"
+  }
+}

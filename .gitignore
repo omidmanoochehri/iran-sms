@@ -1,0 +1,20 @@
+dist/
+node_modules/
+coverage/
+*.log
+*.tsbuildinfo
+
+# Never commit real credentials. `.env.example` is the template.
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local scratch files
+smoke.mjs
+smoke.cjs
+runtime/

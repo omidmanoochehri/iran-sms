@@ -1,0 +1,102 @@
+{
+  "name": "iran-sms",
+  "version": "0.1.0",
+  "description": "Unified, fully-typed SDK for Iranian SMS gateways — one normalized API plus the complete native API of every supported provider.",
+  "keywords": [
+    "sms",
+    "iran",
+    "iranian",
+    "sms-gateway",
+    "otp",
+    "pattern",
+    "template",
+    "ippanel",
+    "kavenegar",
+    "sms.ir",
+    "melipayamak",
+    "farazsms",
+    "iranpayamak",
+    "mediana",
+    "amootsms",
+    "farapayamak",
+    "persian",
+    "farsi"
+  ],
+  "license": "MIT",
+  "author": "Cactus Software Group",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cactus-software-group/iran-sms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cactus-software-group/iran-sms/issues"
+  },
+  "homepage": "https://github.com/cactus-software-group/iran-sms#readme",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.17"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./errors": {
+      "types": "./dist/esm/core/errors.d.ts",
+      "import": "./dist/esm/core/errors.js",
+      "require": "./dist/cjs/core/errors.js"
+    },
+    "./phone": {
+      "types": "./dist/esm/core/phone.d.ts",
+      "import": "./dist/esm/core/phone.js",
+      "require": "./dist/cjs/core/phone.js"
+    },
+    "./providers/*": {
+      "types": "./dist/esm/providers/*/index.d.ts",
+      "import": "./dist/esm/providers/*/index.js",
+      "require": "./dist/cjs/providers/*/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && node scripts/finalize-cjs.mjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "pretest": "npm run build",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "test:only": "node --test \"test/**/*.test.ts\"",
+    "test:coverage": "node --test --experimental-test-coverage \"test/**/*.test.ts\"",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm run test",
+    "prepublishOnly": "npm run check",
+    "docs:matrix": "node scripts/generate-matrix.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/node": "^22.8.0",
+    "eslint": "^9.13.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

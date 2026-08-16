@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    // Tests and examples import sibling `.ts` helpers directly, and they import the built
+    // package from `dist/` so the suite exercises what actually ships.
+    "allowImportingTsExtensions": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": ["test/**/*.ts", "examples/**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,23 @@
+{
+  "status": "ok",
+  "code": "200",
+  "data": {
+    "messages": [
+      {
+        "number": "+983000",
+        "message": "سلام",
+        "sender": "+989121234567",
+        "time": 1747808125,
+        "type": "normal"
+      }
+    ]
+  },
+  "meta": {
+    "total": 1,
+    "limit": 10,
+    "page": 1,
+    "pages": 1,
+    "prev": null,
+    "next": null
+  }
+}

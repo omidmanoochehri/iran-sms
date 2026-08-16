@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "code": "200",
+  "data": {
+    "recipients": [
+      {
+        "recipient": "+989121234567",
+        "status": "delivered"
+      }
+    ]
+  },
+  "meta": {
+    "total": 1,
+    "limit": 10,
+    "page": 1,
+    "pages": 1,
+    "prev": null,
+    "next": null
+  }
+}

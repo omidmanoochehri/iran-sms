@@ -1,0 +1,10 @@
+{
+  "data": null,
+  "meta": {
+    "status": false,
+    "message": "پترن مورد نظر یافت نشد",
+    "message_parameters": [],
+    "message_code": "404-1",
+    "errors": {}
+  }
+}

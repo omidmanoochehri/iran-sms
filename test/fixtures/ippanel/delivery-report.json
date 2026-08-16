@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "recipient": "+989190000000",
+      "message": "متن پیام",
+      "is_readable": true,
+      "msg_parts": "1",
+      "message_status": "2"
+    },
+    {
+      "recipient": "+989120000000",
+      "message": "با سلام",
+      "is_readable": true,
+      "msg_parts": "1",
+      "message_status": "4"
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "path": "/api/report/recipients",
+    "per_page": 10,
+    "to": 2,
+    "total": 2,
+    "status": true,
+    "message": "انجام شد",
+    "message_code": "200-1"
+  }
+}

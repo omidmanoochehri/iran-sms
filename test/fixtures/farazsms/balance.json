@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "message": null,
+  "data": {
+    "balanceAmount": 5000,
+    "balanceCount": 25,
+    "details": [
+      {
+        "count": 25,
+        "rate": 200,
+        "amount": 5000
+      }
+    ]
+  }
+}

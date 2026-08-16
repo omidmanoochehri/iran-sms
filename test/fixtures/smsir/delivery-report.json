@@ -1,0 +1,14 @@
+{
+  "status": 1,
+  "message": "موفق",
+  "data": {
+    "messageId": 89545112,
+    "mobile": 9120000000,
+    "messageText": "Your Text",
+    "sendDateTime": 1704094200,
+    "lineNumber": 30004505000027,
+    "cost": 1,
+    "deliveryState": 1,
+    "deliveryDateTime": 1704094260
+  }
+}

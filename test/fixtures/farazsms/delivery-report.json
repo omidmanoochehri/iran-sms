@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "data": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalItems": 2,
+    "itemsPerPage": 20,
+    "items": [
+      {
+        "mobile": "09121234567",
+        "status": "delivered"
+      },
+      {
+        "mobile": "09351234567",
+        "status": "blacklist"
+      }
+    ]
+  },
+  "messages": null
+}

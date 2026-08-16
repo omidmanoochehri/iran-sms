@@ -1,0 +1,14 @@
+{
+  "status": "error",
+  "code": "422",
+  "data": {
+    "error": {
+      "message": [
+        {
+          "code": "required",
+          "err": "message is required"
+        }
+      ]
+    }
+  }
+}

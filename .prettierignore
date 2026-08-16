@@ -1,0 +1,11 @@
+dist/
+coverage/
+node_modules/
+
+# Generated from src/providers/catalog.ts by `npm run docs:matrix`. CI compares it byte-for-byte
+# against a fresh generation, so it must not be reformatted independently of the generator.
+docs/provider-matrix.md
+
+# Fixtures are provider responses copied verbatim; they are written by the generator with
+# stable formatting and should not be reflowed.
+test/fixtures/

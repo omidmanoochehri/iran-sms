@@ -1,0 +1,13 @@
+{
+  "MessageText": "خوش امدید: کد تایید شما 917649",
+  "SMSPagesCount": 1,
+  "CampaignID": 12345678,
+  "Price": 2299,
+  "Status": "Success",
+  "Data": {
+    "Mobile": "09150000000",
+    "MessageID": 12345678,
+    "Code": "917649",
+    "Status": "Success"
+  }
+}

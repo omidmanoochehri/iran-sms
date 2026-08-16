@@ -1,0 +1,24 @@
+{
+  "data": {
+    "username": "*****",
+    "number": "+981000",
+    "number_id": "123654",
+    "messages_outbox_id": "12545856",
+    "state": "finish",
+    "type": "pattern_transactional",
+    "time_send": "1745409418",
+    "time": "1745409418",
+    "rcpts_count": "1",
+    "exit_count": "1",
+    "status": "پایان یافته",
+    "message": "متن پیام",
+    "part": null,
+    "cost": 3990.2,
+    "state_id": 6
+  },
+  "meta": {
+    "status": true,
+    "message": "انجام شد",
+    "message_code": "200-1"
+  }
+}

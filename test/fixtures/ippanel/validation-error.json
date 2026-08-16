@@ -1,0 +1,14 @@
+{
+  "data": null,
+  "meta": {
+    "status": false,
+    "message": "تکمیل گزینه پیام الزامی است",
+    "message_parameters": [],
+    "message_code": "400-2",
+    "errors": {
+      "message": [
+        "تکمیل گزینه پیام الزامی است"
+      ]
+    }
+  }
+}

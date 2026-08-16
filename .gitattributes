@@ -1,0 +1,13 @@
+# Prettier is configured with `endOfLine: "lf"` and CI runs `format:check`, so the working
+# tree must keep LF on every platform — not just in the repository. Without this, a Windows
+# checkout with core.autocrlf=true gets CRLF locally and `npm run format:check` fails.
+* text=auto eol=lf
+
+# Binary-ish files that must never be line-ending normalised.
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+
+# Generated; keep it out of diffs by default.
+package-lock.json -diff linguist-generated

@@ -1,0 +1,7 @@
+{
+  "status": "error",
+  "code": "10006",
+  "data": {
+    "error": "credit not enough"
+  }
+}

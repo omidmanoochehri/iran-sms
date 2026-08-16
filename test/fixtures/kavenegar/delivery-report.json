@@ -1,0 +1,18 @@
+{
+  "return": {
+    "status": 200,
+    "message": "تایید شد"
+  },
+  "entries": [
+    {
+      "messageid": 85463238,
+      "status": 10,
+      "statustext": "رسیده به گیرنده"
+    },
+    {
+      "messageid": 85463239,
+      "status": 11,
+      "statustext": "نرسیده به گیرنده"
+    }
+  ]
+}

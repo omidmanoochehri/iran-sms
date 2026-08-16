@@ -1,0 +1,19 @@
+{
+  "MessageText": "نمونه پیام تستی",
+  "SMSPagesCount": 1,
+  "CampaignID": 12345678,
+  "Price": 1234,
+  "Status": "Success",
+  "Data": [
+    {
+      "Mobile": 9120000000,
+      "MessageID": 1234568,
+      "Status": "Success"
+    },
+    {
+      "Mobile": 9150000000,
+      "MessageID": 1234567,
+      "Status": "Success"
+    }
+  ]
+}

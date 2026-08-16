@@ -1,0 +1,17 @@
+{
+  "MyBase": {
+    "Value": "Ok",
+    "RetStatus": 1,
+    "StrRetStatus": "Ok"
+  },
+  "Data": [
+    {
+      "MsgID": 12540,
+      "Body": "نمونه پیام دریافتی",
+      "SendDate": "2026-07-29T10:30:00",
+      "Sender": "09121234567",
+      "Receiver": "5000...",
+      "Parts": 1
+    }
+  ]
+}

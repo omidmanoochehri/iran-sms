@@ -1,0 +1,13 @@
+{
+  "status": 1,
+  "message": "موفق",
+  "data": [
+    {
+      "receiveReturnId": 1234,
+      "messageText": "سلام",
+      "number": 30004505000027,
+      "mobile": 9120000000,
+      "receivedDateTime": 1704094200
+    }
+  ]
+}

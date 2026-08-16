@@ -1,0 +1,14 @@
+{
+  "data": {
+    "credit": 6084722932.705052,
+    "yesterday_credit": 195251925510.55,
+    "gift": 0,
+    "gift_expires_at": null,
+    "updated_at": "2026-06-30 18:07:06"
+  },
+  "meta": {
+    "status": true,
+    "message": "انجام شد",
+    "message_code": "200-1"
+  }
+}
